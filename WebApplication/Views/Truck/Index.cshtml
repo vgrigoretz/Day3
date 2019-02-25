@@ -1,0 +1,33 @@
+﻿@model List<WebApplication.Models.Truck>
+@{
+    /**/
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p style="margin-top: 50px;">
+    @Html.ActionLink("Add New Truck", "Create", null, new { @class = "btn btn-primary pull-right" })
+    <div class="clearfix"></div>
+<p>
+<p>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Model</th>
+            <th>Year of Production</th>
+            <th>Distance</th>
+            <th>Capacity</th>
+            <th></th>
+        </tr>
+        @foreach (var truck in Model)
+        {
+        <tr>
+            <td>@Html.ActionLink(truck.Id.ToString(), "Details", "Truck", new { id = truck.Id }, null)</td>
+            <td>@truck.Model</td>
+            <td>@truck.YearOfProduction</td>
+            <td>@truck.Distance</td>
+            <td>@truck.Capacity</td>
+            <td>@Html.ActionLink("x", "Delete","Truck",new { id = truck.Id }, null)</td>
+        </tr>
+        }
+    </table>
+</p>

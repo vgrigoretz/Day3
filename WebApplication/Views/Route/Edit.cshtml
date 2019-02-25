@@ -1,0 +1,34 @@
+﻿@model  WebApplication.Models.Route
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p>
+	@using (var form = Html.BeginForm("Edit", "Route", FormMethod.Post, new { @class = "form" }))
+	{
+		@Html.AntiForgeryToken()
+		@Html.ValidationSummary()
+		<div class="form-group">
+			@Html.LabelFor(p => p.StartPoint)
+			@Html.TextBoxFor(p => p.StartPoint, new { @class = "form-control" })
+			@Html.ValidationMessageFor(p => p.StartPoint)
+		</div>
+		<div class="form-group">
+			@Html.LabelFor(p => p.DestinationPoint)
+			@Html.TextBoxFor(p => p.DestinationPoint, new { @class = "form-control" })
+			@Html.ValidationMessageFor(p => p.DestinationPoint)
+		</div>
+		<div class="form-group">
+			@Html.LabelFor(p => p.Distance)
+			@Html.TextBoxFor(p => p.Distance, new { @class = "form-control" })
+			@Html.ValidationMessageFor(p => p.Distance)
+		</div>
+		<div class="form-group">
+			@Html.LabelFor(p => p.Vehicle)
+			@Html.TextBoxFor(p => p.Vehicle, new { @class = "form-control" })
+			@Html.ValidationMessageFor(p => p.Vehicle)
+		</div>
+		<div class="form-group">
+			<input class="btn btn-primary" type="submit" value="Update" />
+		</div>
+	}
+</p>

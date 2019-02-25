@@ -1,0 +1,34 @@
+﻿@model  WebApplication.Models.Truck
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p>
+    @using (var form = Html.BeginForm("Delete", "Truck", FormMethod.Post, new { @class = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        <div class="form-group">
+            @Html.LabelFor(p => p.Model)
+            @Html.TextBoxFor(p => p.Model, new { @class = "form-control" })
+            @Html.ValidationMessageFor(p => p.Model)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(p => p.YearOfProduction)
+            @Html.TextBoxFor(p => p.YearOfProduction, new { @class = "form-control" })
+            @Html.ValidationMessageFor(p => p.YearOfProduction)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(p => p.Distance)
+            @Html.TextBoxFor(p => p.Distance, new { @class = "form-control" })
+            @Html.ValidationMessageFor(p => p.Distance)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(p=>p.Capacity)
+            @Html.TextBoxFor(p => p.Capacity, new { @class = "form-control" })
+            @Html.ValidationMessageFor(p=>p.Capacity)
+        </div>
+        <div class="form-group">
+            <input class="btn btn-danger" type="submit" value="Delete" />
+        </div>
+    }
+</p>

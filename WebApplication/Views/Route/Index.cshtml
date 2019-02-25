@@ -1,0 +1,33 @@
+﻿@model List<WebApplication.Models.Route>
+@{
+	/**/
+
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p style="margin-top: 50px;">
+	@Html.ActionLink("Add New Route", "Create", null, new { @class = "btn btn-primary pull-right" })
+	<div class="clearfix"></div>
+<p>
+<p>
+	<table class="table">
+		<tr>
+			<th>Id</th>
+			<th>Start Point</th>
+			<th>Destination Point</th>
+			<th>Distance</th>
+			<th>Vehicle</th>
+			<th></th>
+		</tr>
+		@foreach (var route in Model)
+		{
+			<tr>
+				<td>@Html.ActionLink(route.Id.ToString(), "Details", "Route", new { id = route.Id }, null)</td>
+				<td>@route.StartPoint</td>
+				<td>@route.DestinationPoint</td>
+				<td>@route.Distance</td>
+				<td>@route.Vehicle</td>
+				<td>@Html.ActionLink("x", "Delete", "Route", new { id = route.Id }, null)</td>
+			</tr>
+		}
+	</table>
+</p>

@@ -1,0 +1,28 @@
+﻿@model  WebApplication.Models.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p>
+    <div>
+        <div class="row">
+            <div class="col-md-6">Id</div>
+            <div class="col-md-6">@Model.Id</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">Name</div>
+            <div class="col-md-6">@Model.Name</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">Surname</div>
+            <div class="col-md-6">@Model.Surname</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">EmployDate</div>
+            <div class="col-md-6">@Model.EmployDate</div>
+        </div>
+    </div>
+<p style="margin-top: 50px;">
+    @Html.ActionLink("Edit User", "Edit", new { id = @Model.Id }, new { @class = "btn btn-primary pull-right" })
+    <div class="clearfix"></div>
+<p>
+</p>
